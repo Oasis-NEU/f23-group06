@@ -1,3 +1,4 @@
+import { FaUserCircle } from 'react-icons/fa';
 export default function Home() {
 	// TODO: Fetch clubs from API, and render them here
 	const clubs = [
@@ -13,8 +14,8 @@ export default function Home() {
 	];
 	const renderClubs = clubs.map((club) => 
 		<div key={club.id} className="border border-black w-1/4 p-10 m-3">
-			<h1 className="text-4xl">{club.title}</h1>
-			<p className="text-3xl">{club.description}</p>
+			<h1 className="text-3xl">{club.title}</h1>
+			<p className="text-2xl">{club.description}</p>
 			<button>Go to Club</button>
 		</div>
 	);
@@ -23,8 +24,9 @@ export default function Home() {
 			{/* Space for NavBar  */}
 			<div className="w-1/5 bg-black h-screen"></div>
 			<div className="w-4/5 text-center flex flex-col">
-				{/* use library for user icon */}
-				<h1 className="text-5xl p-5">Club Selection Menu</h1>
+				<div className="m-3 flex justify-end"><FaUserCircle size={100} /></div>
+				<h1 className="text-6xl p-5">Welcome to ClubHub</h1>
+				<h1 className="text-4xl p-5">Club Selection Menu</h1>
 				<div className="flex flex-row flex-wrap justify-center">
 					{renderClubs}
 				</div>
