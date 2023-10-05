@@ -1,1 +1,1 @@
-//The club's home page
+//Club home page

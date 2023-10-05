@@ -1,6 +1,7 @@
 import { FaUserCircle } from 'react-icons/fa';
 export default function Home() {
 	// TODO: Fetch clubs from API, and render them here
+	// We should also get an image for the club from the API
 	const clubs = [
 		{title: 'Club 1', description: 'Club 1 description', id: 1},
 		{title: 'Club 2', description: 'Club 2 description', id: 2},
