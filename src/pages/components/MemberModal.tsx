@@ -1,10 +1,8 @@
 import React from "react";
 
-import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, Checkbox, Input, Link} from "@nextui-org/react";
+import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, Input} from "@nextui-org/react";
 import {MailIcon} from './MailIcon.jsx';
-import {LockIcon} from './LockIcon.jsx';
-import {Select, SelectItem} from "@nextui-org/react";
-import {Chip} from "@nextui-org/react";
+import {Select, SelectItem, Chip} from "@nextui-org/react";
 
 export default function MemberModal() {
     const {isOpen, onOpen, onOpenChange} = useDisclosure();

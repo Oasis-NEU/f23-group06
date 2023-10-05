@@ -1,4 +1,3 @@
-//Nav bar on the left side
 import { BsPeople } from 'react-icons/bs';
 import { MdEventNote } from 'react-icons/md';
 import { BsListTask } from 'react-icons/bs';
@@ -15,14 +14,14 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Link from '@mui/material/Link';
 
-const drawerWidth = 240;
+const drawerWidth = '15vw';
 
 export default function NavBar() {
     return(
         <Box sx={{display: 'flex'}}>
         <Drawer
             sx={{
-            width: 290,
+            width: drawerWidth,
             flexShrink: 0,
             '& .MuiDrawer-paper': {
                 width: drawerWidth,
