@@ -13,6 +13,7 @@ import Typography from '@mui/material/Typography';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
+import Link from '@mui/material/Link';
 
 const drawerWidth = 240;
 
@@ -35,24 +36,30 @@ export default function NavBar() {
                 <Divider />
             <List>
                 <Typography variant = 'h4'>
-                    <ListItemButton >
-                        <ListItemIcon>
-                            <BsPeople />
-                        </ListItemIcon>
-                        <ListItemText primary="Members" />
-                    </ListItemButton>
-                    <ListItemButton>
-                        <ListItemIcon>
-                            <MdEventNote />
-                        </ListItemIcon>
-                        <ListItemText primary="  Events" />
-                    </ListItemButton>
-                    <ListItemButton>
-                        <ListItemIcon>
-                            <BsListTask />
-                        </ListItemIcon>
-                        <ListItemText primary="  Tasks" />
-                    </ListItemButton>
+                    <Link href="https://media.tenor.com/yAI9vGPhvokAAAAC/kiss-make-out.gif" style={{ textDecoration: 'none'}}>
+                        <ListItemButton>
+                            <ListItemIcon>
+                                <BsPeople />
+                            </ListItemIcon>
+                            <ListItemText className="text-black " primary="Members" />
+                        </ListItemButton>
+                    </Link>
+                    <Link href="https://i.makeagif.com/media/2-06-2016/7A8bW3.gif" style={{ textDecoration: 'none'}}>
+                        <ListItemButton>
+                            <ListItemIcon>
+                                <MdEventNote />
+                            </ListItemIcon>
+                            <ListItemText className="text-black" primary="Events" />
+                        </ListItemButton>
+                    </Link>
+                    <Link href="https://media.tenor.com/j6m9SYy5SVwAAAAM/gayy-gay.gif" style={{ textDecoration: 'none'}}>
+                        <ListItemButton>
+                            <ListItemIcon>
+                                <BsListTask />
+                            </ListItemIcon>
+                            <ListItemText className="text-black" primary="Tasks" />
+                        </ListItemButton>
+                    </Link>
                 </Typography>
             </List>
         </Drawer>
