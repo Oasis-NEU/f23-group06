@@ -1,1 +1,0 @@
-///I think this is not needed because every modal will be unique and we already have a modal component in materual ui -Scott
