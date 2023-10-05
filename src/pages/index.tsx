@@ -1,4 +1,5 @@
 import { FaUserCircle } from 'react-icons/fa';
+import NavBar from './components/NavBar';
 export default function Home() {
 	// TODO: Fetch clubs from API, and render them here
 	// We should also get an image for the club from the API
@@ -23,7 +24,7 @@ export default function Home() {
 	return (
 		<div className="flex">
 			{/* Space for NavBar  */}
-			<div className="w-1/5 bg-black h-screen"></div>
+			<NavBar />
 			<div className="w-4/5 text-center flex flex-col">
 				<div className="m-3 flex justify-end"><FaUserCircle size={100} /></div>
 				<h1 className="text-6xl p-5">Welcome to ClubHub</h1>
