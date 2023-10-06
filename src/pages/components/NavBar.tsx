@@ -34,6 +34,8 @@ export default function NavBar() {
             <Toolbar />
                 <Divider />
             <List>
+                {/* TODO: turn this into a dynamically rendered list */}
+                {/* add this as a prop so we can customize nav bar on each page if need be */}
                 <Typography variant = 'h4'>
                     <Link href="https://media.tenor.com/yAI9vGPhvokAAAAC/kiss-make-out.gif" style={{ textDecoration: 'none'}}>
                         <ListItemButton>
