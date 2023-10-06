@@ -24,7 +24,7 @@ export default function App() {
     ]
 
   return (
-    <div className="flex flex-col gap-3 w-full">
+    <div className="flex flex-col gap-3 w-full mx-8">
         <Table aria-label="Example table with dynamic content" selectionMode="multiple" classNames={
             {
                 base: "w-full",
