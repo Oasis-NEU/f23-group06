@@ -9,7 +9,6 @@ export default function App() {
         {key: 2, name: "Test 2", email: "test@test.com", label: "business student"},
         {key: 3, name: "Test 3", email: "test@test.com", label: "business student"},
     ]
-    //fixed
     const columns = [
         {
             key: "name",

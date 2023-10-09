@@ -3,27 +3,32 @@ import {Table, TableHeader, TableColumn,
 
 
 //TODO: Connect to database to draw member data
-const data = [{
-    id: 1,
-    name: 'Russell Leung',
-    email: 'leung.r@northeastern.edu',
-    role: 'President'
-},{
-    id: 2,
-    name: 'Scott Ambramson',
-    email: 'abramson.s@northeastern.edu',
-    role: 'Vice President'
-},{
-    id: 3,
-    name: 'Vincient Demiasip',
-    email: 'demiasip.v@northeastern.edu',
-    role: 'Code monkey'
-},{
-    id: 4,
-    name: 'Campbell Lee',
-    email: 'lee.camp@northeastern.edu',
-    role: 'Code monkey'
-}];
+const data = [
+    {
+        id: 1,
+        name: 'Russell Leung',
+        email: 'leung.r@northeastern.edu',
+        role: 'President'
+    },
+    {
+        id: 2,
+        name: 'Scott Ambramson',
+        email: 'abramson.s@northeastern.edu',
+        role: 'Vice President'
+    },
+    {
+        id: 3,
+        name: 'Vincient Demiasip',
+        email: 'demiasip.v@northeastern.edu',
+        role: 'Code monkey'
+    },
+    {
+        id: 4,
+        name: 'Campbell Lee',
+        email: 'lee.camp@northeastern.edu',
+        role: 'Code monkey'
+    }
+];
 
 const columns = [
     {
@@ -50,7 +55,7 @@ export default function Page() {
             </TableHeader>
             <TableBody items={data}>
                 {(item) => (
-                <TableRow key={item.key}>
+                <TableRow key={item.id}>
                     {(columnKey) => <TableCell>{getKeyValue(item, columnKey)}</TableCell>}
                 </TableRow>
                 )}
