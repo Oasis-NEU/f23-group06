@@ -5,7 +5,9 @@ import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, getKeyV
 export default function App() {
     //get from API
     const rows = [
-        {key: 1, name: "Scott Abramson", email: "abramson.s@northeastern.edu", role: "business student"}
+        {key: 1, name: "Scott Abramson", email: "abramson.s@northeastern.edu", label: "business student"},
+        {key: 2, name: "Test 2", email: "test@test.com", label: "business student"},
+        {key: 3, name: "Test 3", email: "test@test.com", label: "business student"},
     ]
     //fixed
     const columns = [
