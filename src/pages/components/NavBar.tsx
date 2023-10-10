@@ -62,7 +62,7 @@ export default function NavBar() {
                 {navItems.map((item, index) => (
                     <Typography variant = 'h4' key={index}>
                         <Link href={item.link} style={{ textDecoration: 'none'}}>
-                            <ListItemButton selected={selectedIndex === index} onClick={(event) => handleListItemClick(event, index)}>
+                            <ListItemButton selected={selectedIndex === index && index != 0} onClick={(event) => handleListItemClick(event, index)}>
                                 <ListItemIcon>
                                     {item.icon}
                                 </ListItemIcon>
