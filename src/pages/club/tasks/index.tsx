@@ -1,13 +1,15 @@
 import React from "react";
-import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, getKeyValue} from "@nextui-org/react";
+import {Table, TableHeader, TableColumn, TableBody,
+        TableRow, TableCell, getKeyValue, Button, Link} from "@nextui-org/react";
 
 
 export default function App() {
     //get from API
     const rows = [
-        {key: 1, name: "Scott Abramson", email: "abramson.s@northeastern.edu", role: "business student"}
+        {key: 1, name: "Scott Abramson", email: "abramson.s@northeastern.edu", label: "business student"},
+        {key: 2, name: "Test 2", email: "test@test.com", label: "business student"},
+        {key: 3, name: "Test 3", email: "test@test.com", label: "business student"},
     ]
-    //fixed
     const columns = [
         {
             key: "name",
@@ -42,6 +44,10 @@ export default function App() {
                 )}
             </TableBody>
         </Table>
+        <br></br>
+        <Link href="/club/tasks/add">
+            <Button>Add Task</Button>
+        </Link>
     </div>
   );
 }
