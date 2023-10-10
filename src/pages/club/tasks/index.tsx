@@ -46,7 +46,7 @@ export default function App() {
         </Table>
         <br></br>
         <Link href="/club/tasks/add">
-            <Button>Add Member</Button>
+            <Button>Add Task</Button>
         </Link>
     </div>
   );

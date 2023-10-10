@@ -7,7 +7,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import dayjs from 'dayjs';
 
-export default function MemberModal() {
+export default function TaskModal() {
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
     //Get members from API. Style chips programmatically. Colors should be consistent accross renders.
     const members = [
@@ -28,7 +28,7 @@ export default function MemberModal() {
                 <ModalContent>
                 {(onClose) => (
                     <>
-                    <ModalHeader className="flex flex-col gap-1">Add Member</ModalHeader>
+                    <ModalHeader className="flex flex-col gap-1">Add Task</ModalHeader>
                     <ModalBody>
                         <Input
                             autoFocus
