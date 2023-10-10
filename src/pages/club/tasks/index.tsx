@@ -1,5 +1,6 @@
 import React from "react";
-import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, getKeyValue} from "@nextui-org/react";
+import {Table, TableHeader, TableColumn, TableBody,
+        TableRow, TableCell, getKeyValue, Button, Link} from "@nextui-org/react";
 
 
 export default function App() {
@@ -43,6 +44,10 @@ export default function App() {
                 )}
             </TableBody>
         </Table>
+        <br></br>
+        <Link href="/club/tasks/add">
+            <Button>Add Member</Button>
+        </Link>
     </div>
   );
 }

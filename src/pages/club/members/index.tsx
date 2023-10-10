@@ -1,5 +1,5 @@
 import {Table, TableHeader, TableColumn, 
-    TableBody, TableRow, TableCell, getKeyValue, Button, ButtonGroup} from "@nextui-org/react";
+    TableBody, TableRow, TableCell, getKeyValue, Button, Link} from "@nextui-org/react";
 
 
 //TODO: Connect to database to draw member data
@@ -49,18 +49,22 @@ export default function Page() {
     return (
         <div className="w-full h-screen dark text-foreground">
             <div className="mx-auto w-4/5 mt-1/2 h-min">
-            <Table isStriped>
-            <TableHeader columns={columns}>
-                {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
-            </TableHeader>
-            <TableBody items={data}>
-                {(item) => (
-                <TableRow key={item.id}>
-                    {(columnKey) => <TableCell>{getKeyValue(item, columnKey)}</TableCell>}
-                </TableRow>
-                )}
-            </TableBody>
-            </Table>
+                <Table isStriped>
+                    <TableHeader columns={columns}>
+                        {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
+                    </TableHeader>
+                    <TableBody items={data}>
+                        {(item) => (
+                        <TableRow key={item.id}>
+                            {(columnKey) => <TableCell>{getKeyValue(item, columnKey)}</TableCell>}
+                        </TableRow>
+                        )}
+                    </TableBody>
+                </Table>
+                <br></br>
+                <Link href="/club/members/add">
+                    <Button>Add Member</Button>
+                </Link>
             </div>
         </div>
     )
