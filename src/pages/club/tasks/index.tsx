@@ -1,8 +1,13 @@
 import React from "react";
+
 import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, getKeyValue } from "@nextui-org/react";
 import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
 import db from "../../../backend/db"
 import { Timestamp, collection, getDocs } from "firebase/firestore";
+=======
+import {Table, TableHeader, TableColumn, TableBody,
+        TableRow, TableCell, getKeyValue, Button, Link} from "@nextui-org/react";
+
 
 type task = {
 	id: string,

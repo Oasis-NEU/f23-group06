@@ -13,10 +13,35 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Link from '@mui/material/Link';
+import {useState} from 'react';
 
 const drawerWidth = '15vw';
 
+const navItems = [
+    {
+        label: 'Members',
+        icon: <BsPeople />,
+        link: 'https://media.tenor.com/yAI9vGPhvokAAAAC/kiss-make-out.gif'
+    },
+    {
+        label: 'Events',
+        icon: <MdEventNote />, 
+        link: 'https://i.makeagif.com/media/2-06-2016/7A8bW3.gif'
+    },
+    {
+        label: 'Tasks',
+        icon: <BsListTask />,
+        link: 'https://media.tenor.com/j6m9SYy5SVwAAAAM/gayy-gay.gif'
+    }
+]
+
 export default function NavBar() {
+    const [selectedIndex, setSelectedIndex] = useState(0);
+    
+    const handleListItemClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>, index: number) => {
+        setSelectedIndex(index);
+    };
+
     return(
         <Box sx={{display: 'flex'}}>
         <Drawer
@@ -34,34 +59,18 @@ export default function NavBar() {
             <Toolbar />
                 <Divider />
             <List>
-                {/* TODO: turn this into a dynamically rendered list */}
-                {/* add this as a prop so we can customize nav bar on each page if need be */}
-                <Typography variant = 'h4'>
-                    <Link href="https://media.tenor.com/yAI9vGPhvokAAAAC/kiss-make-out.gif" style={{ textDecoration: 'none'}}>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                <BsPeople />
-                            </ListItemIcon>
-                            <ListItemText className="text-black " primary="Members" />
-                        </ListItemButton>
-                    </Link>
-                    <Link href="https://i.makeagif.com/media/2-06-2016/7A8bW3.gif" style={{ textDecoration: 'none'}}>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                <MdEventNote />
-                            </ListItemIcon>
-                            <ListItemText className="text-black" primary="Events" />
-                        </ListItemButton>
-                    </Link>
-                    <Link href="https://media.tenor.com/j6m9SYy5SVwAAAAM/gayy-gay.gif" style={{ textDecoration: 'none'}}>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                <BsListTask />
-                            </ListItemIcon>
-                            <ListItemText className="text-black" primary="Tasks" />
-                        </ListItemButton>
-                    </Link>
-                </Typography>
+                {navItems.map((item, index) => (
+                    <Typography variant = 'h4' key={index}>
+                        <Link href={item.link} style={{ textDecoration: 'none'}}>
+                            <ListItemButton selected={selectedIndex === index && index != 0} onClick={(event) => handleListItemClick(event, index)}>
+                                <ListItemIcon>
+                                    {item.icon}
+                                </ListItemIcon>
+                                <ListItemText className="text-black " primary={item.label} />
+                            </ListItemButton>
+                        </Link>
+                    </Typography>
+                ))}
             </List>
         </Drawer>
         </Box>
