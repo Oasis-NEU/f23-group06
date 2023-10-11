@@ -50,7 +50,7 @@ export default function Page() {
             </TableHeader>
             <TableBody items={data}>
                 {(item) => (
-                <TableRow key={item.key}>
+                <TableRow key={item.id}>
                     {(columnKey) => <TableCell>{getKeyValue(item, columnKey)}</TableCell>}
                 </TableRow>
                 )}
