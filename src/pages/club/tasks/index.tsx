@@ -4,7 +4,7 @@ import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
 import db from "../../../backend/db"
 import { Timestamp, collection, getDocs } from "firebase/firestore";
 import {Table, TableHeader, TableColumn, TableBody,
-        TableRow, TableCell, getKeyValue, Button, Link} from "@nextui-org/react";
+		TableRow, TableCell, getKeyValue, Button, Link} from "@nextui-org/react";
 
 
 type task = {
@@ -68,9 +68,9 @@ export default function Page({ tasks }: InferGetServerSidePropsType<GetServerSid
 					)}
 				</TableBody>
 			</Table>
-            <Link href="/club/tasks/add">
-                <Button>Add Task</Button>
-            </Link>
+			<Link href="/club/tasks/add">
+				<Button>Add Task</Button>
+			</Link>
 		</div>
 	);
 }

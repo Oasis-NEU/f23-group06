@@ -10,7 +10,7 @@ const app = initializeApp({
     authDomain: process.env.FIREBASE_AUTH_DOMAIN,   // Auth with popup/redirect
     databaseURL: process.env.DATABASE_URL,          // Realtime Database
     storageBucket: process.env.STORAGE_BUCKET,      // Storage
-    messagingSenderId: process.env.MESSAGING_ID,               // Cloud Messaging
+    messagingSenderId: process.env.MESSAGING_ID,    // Cloud Messaging
     measurementId: process.env.MEASUREMENT_ID
   });
 
