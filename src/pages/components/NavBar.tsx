@@ -1,5 +1,5 @@
 import { BsPeople } from 'react-icons/bs';
-import { MdEventNote } from 'react-icons/md';
+import { MdEventNote, MdHome } from 'react-icons/md';
 import { BsListTask } from 'react-icons/bs';
 
 import * as React from 'react';
@@ -19,19 +19,24 @@ const drawerWidth = '15vw';
 
 const navItems = [
     {
+        label: "Home",
+        icon: <MdHome/>,
+        link: "../club"
+    },
+    {
         label: 'Members',
         icon: <BsPeople />,
-        link: 'https://media.tenor.com/yAI9vGPhvokAAAAC/kiss-make-out.gif'
+        link: '../club/members'
     },
     {
         label: 'Events',
         icon: <MdEventNote />, 
-        link: 'https://i.makeagif.com/media/2-06-2016/7A8bW3.gif'
+        link: '../club/events'
     },
     {
         label: 'Tasks',
         icon: <BsListTask />,
-        link: 'https://media.tenor.com/j6m9SYy5SVwAAAAM/gayy-gay.gif'
+        link: '../club/tasks'
     }
 ]
 
