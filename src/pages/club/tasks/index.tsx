@@ -5,7 +5,7 @@ import db from "../../../backend/db"
 import { Timestamp, collection, getDocs } from "firebase/firestore";
 import {Table, TableHeader, TableColumn, TableBody,
 		TableRow, TableCell, getKeyValue, Button, Link} from "@nextui-org/react";
-
+import TaskModal from "@/pages/components/AddTaskModal";
 
 type task = {
 	id: string,
@@ -68,9 +68,11 @@ export default function Page({ tasks }: InferGetServerSidePropsType<GetServerSid
 					)}
 				</TableBody>
 			</Table>
-			<Link href="/club/tasks/add">
-				<Button>Add Task</Button>
-			</Link>
+			<div className="w-full h-screen">
+                <div className="mx-auto w-min mt-1/2 h-min">
+                    <TaskModal/>
+                </div>
+            </div>
 		</div>
 	);
 }
