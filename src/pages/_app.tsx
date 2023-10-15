@@ -9,8 +9,8 @@ export default function App({ Component, pageProps }: AppProps) {
     <NextUIProvider>
       <div className="m-3 flex justify-end"><FaUserCircle size={100} /></div>
       <div className='flex'>
-        <NavBar />
-        <Component {...pageProps} />
+        <div className='z-10'><NavBar /></div>
+        <div className='w-4/5 z-20'><Component {...pageProps} /></div>
       </div>
     </NextUIProvider>
   )
