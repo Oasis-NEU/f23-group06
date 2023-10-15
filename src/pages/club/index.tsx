@@ -1,4 +1,3 @@
-import { FaUserCircle } from 'react-icons/fa';
 import Button from "@mui/material/Button";
 export default function Page() {
 	// TODO: Fetch clubs and user id from local storage from API, and render them here
