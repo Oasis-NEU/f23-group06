@@ -3,15 +3,10 @@ import {Table, TableHeader, TableColumn, TableBody,
 		TableRow, TableCell, getKeyValue} from "@nextui-org/react";
 import TaskModal from "@/pages/components/AddTaskModal";
 
-type task = {
-	id: string,
-	description: string,
-	due_date: Date,
-	assignees: string[]
-}
-
 export default function Page() {
-	//fixed
+	const rows = [
+        {key: 1, name: "Scott Abramson", email: "abramson.s@northeastern.edu", role: "business student"}
+    ]
 	const columns = [
 		{
 			key: "name",
@@ -30,22 +25,22 @@ export default function Page() {
 	return (
 		<div className="flex flex-col gap-3 w-full mx-8">
 			<Table aria-label="Example table with dynamic content" selectionMode="multiple" classNames={
-				{
-					base: "w-full",
-					table: "w-full"
-				}
-			}>
-				<TableHeader columns={columns}>
-					{(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
-				</TableHeader>
-				<TableBody items={rows}>
-					{(item: task) => (
-						<TableRow key={item.id}>
-							{(columnKey) => <TableCell>{getKeyValue(item, columnKey)}</TableCell>}
-						</TableRow>
-					)}
-				</TableBody>
-			</Table>
+            {
+                base: "w-full",
+                table: "w-full"
+            }
+        }>
+            <TableHeader columns={columns}>
+                {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
+            </TableHeader>
+            <TableBody items={rows}>
+                {(item) => (
+                <TableRow key={item.key}>
+                    {(columnKey) => <TableCell>{getKeyValue(item, columnKey)}</TableCell>}
+                </TableRow>
+                )}
+            </TableBody>
+        </Table>
 			<div className="w-full h-screen">
                 <div className="mx-auto w-min mt-1/2 h-min">
                     <TaskModal/>
