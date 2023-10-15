@@ -4,7 +4,10 @@ import MemberModal from "../../components/AddMemberModal"
 import {useCallback} from "react";
 
 export default function Page() {
-
+    const members = [
+        {id: 1, name: "John Doe", email: "jd@gmail.com", labels: ["President", "Treasurer"]},
+        {id: 2, name: "Jane Doe", email: "snjd", labels: ["Vice President", "Secretary"]},
+    ];
     const columns = [
         {
           key: "name",
