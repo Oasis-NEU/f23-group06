@@ -21,6 +21,7 @@ export default function TaskModal() {
         <>
             <Button onPress={onOpen} color="primary">Open Modal</Button>
             <Modal 
+                backdrop="blur"
                 isOpen={isOpen} 
                 onOpenChange={onOpenChange}
                 placement="top-center"
