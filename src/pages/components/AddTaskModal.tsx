@@ -32,11 +32,13 @@ export default function TaskModal() {
                     <ModalHeader className="flex flex-col gap-1">Add Task</ModalHeader>
                     <ModalBody>
                         <Input
+                            isRequired
                             autoFocus
                             label="Task Name"
                             variant="bordered"
                         />
                         <Textarea
+                            isRequired
                             label="Description"
                             variant="bordered"
                         />
@@ -45,11 +47,13 @@ export default function TaskModal() {
                         </LocalizationProvider>
                         {/* What is this location input */}
                         <Input
+                            isRequired
                             label="Location"
                             variant="bordered"
                         />
                         <label className="text-sm mb-0">Members</label>
                         <Select
+                            isRequired
                             items={members}
                             selectionMode="multiple"
                             isMultiline={true}

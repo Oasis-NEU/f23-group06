@@ -32,6 +32,7 @@ export default function MemberModal() {
                     <ModalHeader className="flex flex-col gap-1">Add Member</ModalHeader>
                     <ModalBody>
                         <Input
+                            isRequired
                             autoFocus
                             endContent={
                                 <MailIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
@@ -40,10 +41,12 @@ export default function MemberModal() {
                             variant="bordered"
                         />
                         <Input
+                            isRequired
                             label="First name"
                             variant="bordered"
                         />
                         <Input
+                            isRequired
                             label="Last name"
                             variant="bordered"
                         />
