@@ -4,6 +4,7 @@ import {NextUIProvider} from "@nextui-org/react";
 import NavBar from './components/NavBar';
 import { FaUserCircle } from 'react-icons/fa';
 
+
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <NextUIProvider>

@@ -1,27 +1,27 @@
 import React from "react";
 
-import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, Input, Textarea} from "@nextui-org/react";
+import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, Input} from "@nextui-org/react";
+import {MailIcon} from './MailIcon.jsx';
 import {Select, SelectItem, Chip} from "@nextui-org/react";
-import { DateField } from '@mui/x-date-pickers/DateField';
-import { LocalizationProvider } from '@mui/x-date-pickers';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
-import dayjs from 'dayjs';
 
-export default function TaskModal() {
+export default function MemberModal() {
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
-    //Get members from API. Style chips programmatically. Colors should be consistent accross renders.
-    const members = [
-        {name: "Russell Leung", id: 1},
-        {name: "Scott Abramson", id: 2},
-        {name: "Vincient Demiasip", id: 3},
-        {name: "Campbell Lee", id: 4},
+    //Get labels from API. Style chips programmatically. Colors should be consistent accross renders.
+    const labels = [
+        {label: <Chip color="primary">Smart</Chip>, value: "Smart"}, 
+        {label: <Chip color="secondary">Average</Chip>, value: "Average"}, 
+        {label: <Chip color="success">Idiot</Chip>, value: "Idiot"}, 
+        {label: <Chip color="danger">More</Chip>, value: "poo"},
+        {label: <Chip color="danger">More More</Chip>, value: "a"},
+        {label: <Chip color="danger">More^3</Chip>, value: "Bb"},
+        {label: <Chip color="danger">Work</Chip>, value: "Btudent"},
+        {label: <Chip color="danger">So many roles wow so good</Chip>, value: "Busineent"}
     ]
 
     return (
         <>
-            <Button onPress={onOpen} color="primary">Open Modal</Button>
-            <Modal 
-                backdrop="blur"
+            <Button onPress={onOpen} color="primary">Add Member</Button>
+            <Modal backdrop="blur"
                 isOpen={isOpen} 
                 onOpenChange={onOpenChange}
                 placement="top-center"
@@ -29,28 +29,27 @@ export default function TaskModal() {
                 <ModalContent>
                 {(onClose) => (
                     <>
-                    <ModalHeader className="flex flex-col gap-1">Add Task</ModalHeader>
+                    <ModalHeader className="flex flex-col gap-1">Add Member</ModalHeader>
                     <ModalBody>
                         <Input
                             autoFocus
-                            label="Task Name"
+                            endContent={
+                                <MailIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
+                            }
+                            label="Email"
                             variant="bordered"
                         />
-                        <Textarea
-                            label="Description"
-                            variant="bordered"
-                        />
-                        <LocalizationProvider dateAdapter={AdapterDayjs}>
-                            <DateField defaultValue={dayjs()} />
-                        </LocalizationProvider>
-                        {/* What is this location input */}
                         <Input
-                            label="Location"
+                            label="First name"
                             variant="bordered"
                         />
-                        <label className="text-sm mb-0">Members</label>
+                        <Input
+                            label="Last name"
+                            variant="bordered"
+                        />
+                        <label className="text-sm mb-0">Labels</label>
                         <Select
-                            items={members}
+                            items={labels}
                             selectionMode="multiple"
                             isMultiline={true}
                             className="mt-0"
@@ -70,9 +69,9 @@ export default function TaskModal() {
                                 );
                             }}
                         >
-                            {members.map((m) => (
-                                <SelectItem key={m.id}>
-                                    <Chip color="primary">{m.name}</Chip>
+                            {labels.map((l) => (
+                                <SelectItem key={l.value}>
+                                    {l.label}
                                 </SelectItem>
                             ))}
                         </Select>
@@ -80,7 +79,7 @@ export default function TaskModal() {
                     </ModalBody>
                     <ModalFooter>
                         <Button color="danger" variant="flat" onPress={onClose}>Close</Button>
-                        <Button color="primary" onPress={onClose}>Make Task</Button>
+                        <Button color="primary" onPress={onClose}>Add</Button>
                     </ModalFooter>
                     </>
                 )}

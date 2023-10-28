@@ -1,5 +1,14 @@
 import { FaUserCircle } from 'react-icons/fa';
 import Button from "@mui/material/Button";
+
+/* 
+For working with the API:
+1. User logs in
+2. After log in, the user gets redirected here.
+3. Get the ID of every club that the user is a part of
+4. Use the ID to get the name and image for each club
+5. Render
+*/
 export default function Page() {
 	// TODO: Fetch clubs from API, and render them here
 	const clubs = [

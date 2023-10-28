@@ -1,7 +1,8 @@
+'use client';
 import React from "react";
 import {Table, TableHeader, TableColumn, TableBody,
 		TableRow, TableCell, getKeyValue} from "@nextui-org/react";
-import TaskModal from "@/pages/components/AddTaskModal";
+import TaskModal from "../../components/AddTaskModal";
 
 export default function Page() {
 	const rows = [
