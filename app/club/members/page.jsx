@@ -1,11 +1,11 @@
 'use client';
 import {Table, TableHeader, TableColumn, 
-    TableBody, TableRow, TableCell, Chip} from "@nextui-org/react";
+    TableBody, TableRow, TableCell, Chip, getKeyValue} from "@nextui-org/react";
 import MemberModal from "../../components/AddMemberModal"
 import {useCallback} from "react";
 
 export default function Page() {
-    const members = [
+    const rows = [
         {id: 1, name: "John Doe", email: "jd@gmail.com", labels: ["President", "Treasurer"]},
         {id: 2, name: "Jane Doe", email: "snjd", labels: ["Vice President", "Secretary"]},
     ];
@@ -38,27 +38,29 @@ export default function Page() {
     }, []);
 
     return (
-        <div className="w-full h-screen dark text-foreground">
-            <div className="mx-auto w-4/5 mt-1/2 h-min">
-                <Table isStriped>
-                    <TableHeader columns={columns}>
-                        {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
-                    </TableHeader>
-                    <TableBody items={members}>
-					{(member) => (
-						<TableRow key={member.id}>
-                            {(columnKey) => {return <TableCell>{renderRow(member, columnKey)}</TableCell>}}
-                        </TableRow>
-					)}
-				</TableBody>
-                </Table>
-                <br></br>
-                <div className="w-full h-screen">
-                    <div className="mx-auto w-min mt-1/2 h-min">
-                        <MemberModal/>
-                    </div>
+        <div className="flex flex-col gap-3 w-full mx-8">
+			<Table aria-label="Example table with dynamic content" selectionMode="multiple" classNames={
+            {
+                base: "w-full",
+                table: "w-full"
+            }
+        }>
+            <TableHeader columns={columns}>
+                {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
+            </TableHeader>
+            <TableBody items={rows}>
+                {(item) => (
+                <TableRow key={item.key}>
+                    {(columnKey) => <TableCell>{getKeyValue(item, columnKey)}</TableCell>}
+                </TableRow>
+                )}
+            </TableBody>
+        </Table>
+			<div className="w-full h-screen">
+                <div className="mx-auto w-min mt-1/2 h-min">
+                    <MemberModal/>
                 </div>
             </div>
-        </div>
+		</div>
     )
 }
