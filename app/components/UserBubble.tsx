@@ -1,3 +1,4 @@
+'use client';
 import React, { useState } from 'react';
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from '@nextui-org/react';
 import { FaUserCircle } from 'react-icons/fa';

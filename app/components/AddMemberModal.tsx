@@ -20,7 +20,7 @@ export default function MemberModal() {
 
     return (
         <>
-            <Button onPress={onOpen} color="primary">Open Modal</Button>
+            <Button onPress={onOpen} color="primary">Add Member</Button>
             <Modal backdrop="blur"
                 isOpen={isOpen} 
                 onOpenChange={onOpenChange}
@@ -82,7 +82,7 @@ export default function MemberModal() {
                     </ModalBody>
                     <ModalFooter>
                         <Button color="danger" variant="flat" onPress={onClose}>Close</Button>
-                        <Button color="primary" onPress={onClose}>Make Members</Button>
+                        <Button color="primary" onPress={onClose}>Add</Button>
                     </ModalFooter>
                     </>
                 )}

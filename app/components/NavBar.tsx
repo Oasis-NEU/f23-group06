@@ -1,3 +1,4 @@
+'use client';
 import { BsPeople } from 'react-icons/bs';
 import { MdEventNote, MdHome } from 'react-icons/md';
 import { BsListTask } from 'react-icons/bs';

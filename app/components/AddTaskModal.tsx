@@ -19,7 +19,7 @@ export default function TaskModal() {
 
     return (
         <>
-            <Button onPress={onOpen} color="primary">Open Modal</Button>
+            <Button onPress={onOpen} color="primary">Add Task</Button>
             <Modal 
                 backdrop="blur"
                 isOpen={isOpen} 

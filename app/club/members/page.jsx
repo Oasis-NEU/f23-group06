@@ -1,3 +1,4 @@
+'use client';
 import {Table, TableHeader, TableColumn, 
     TableBody, TableRow, TableCell, Chip, getKeyValue} from "@nextui-org/react";
 import MemberModal from "../../components/AddMemberModal"
