@@ -2,6 +2,8 @@
 import { BsPeople } from 'react-icons/bs';
 import { MdEventNote, MdHome } from 'react-icons/md';
 import { BsListTask } from 'react-icons/bs';
+import logo from '../../public/ClubHub-logos_transparent.png';
+import Image from "next/image";
 
 import * as React from 'react';
 import Box from '@mui/material/Box';
@@ -15,6 +17,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Link from '@mui/material/Link';
 import {useState} from 'react';
+
 
 const drawerWidth = '15vw';
 
@@ -63,6 +66,12 @@ export default function NavBar() {
             anchor="left"
         >
             <Toolbar />
+            <Image 
+                src={logo} 
+                alt="Logo" 
+                width={800}
+                height={800}
+            />
                 <Divider />
             <List>
                 {navItems.map((item, index) => (
