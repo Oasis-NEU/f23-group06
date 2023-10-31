@@ -53,25 +53,24 @@ export default function NavBar() {
 
     return(
         <Box sx={{display: 'flex'}}>
-        <Drawer
-            sx={{
-            width: drawerWidth,
-            flexShrink: 0,
-            '& .MuiDrawer-paper': {
-                width: drawerWidth,
-                boxSizing: 'border-box',
-            },
-            }}
-            variant="permanent"
-            anchor="left"
-        >
-            <Toolbar />
-            <Image 
-                src={logo} 
-                alt="Logo" 
-                width={800}
-                height={800}
-            />
+            <Drawer
+                sx={{
+                    width: drawerWidth,
+                    flexShrink: 0,
+                    '& .MuiDrawer-paper': {
+                        width: drawerWidth,
+                        boxSizing: 'border-box',
+                    },
+                }}
+                variant="permanent"
+                anchor="left"
+            >
+                <a href="http://localhost:3000/">
+                    <Image 
+                        src={logo} 
+                        alt="Logo" 
+                    />
+                </a>
                 <Divider />
             <List>
                 {navItems.map((item, index) => (
