@@ -5,3 +5,11 @@ import supabase from "../backend/supabase.js";
 async function signOut() {
     const { error } = await supabase.auth.signOut()
 }
+
+export default function Page() {
+    return (
+        <div>
+            PLACEHOLDER :3
+        </div>
+    )
+}
