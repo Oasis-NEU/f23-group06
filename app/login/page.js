@@ -2,6 +2,7 @@
 require('dotenv').config()
 import { Button } from "@nextui-org/react"
 import supabase from "../backend/supabase.js";
+import Image from 'next/image'
 
 const getURL = () => {
     let url =
@@ -23,10 +24,17 @@ async function signInWithAzure() {
             redirectTo: getURL(),
         },
     })
-}  
+}
 
 export default function Page() {
     return (
-        <Button onClick={signInWithAzure}>Microsoct login</Button>
+        <div className="flex align-middle justify-center flex-col w-screen h-screen">
+            <div className="border-black border w-96 h-96 flex justify-center my-auto mx-auto flex-col">
+                <div className="h-5/6 w-full">
+                    Club hub logo    
+                </div>
+                <Button onClick={signInWithAzure} className="w-fit mx-auto text-lg">Login with Microsoft</Button>
+            </div>
+        </div>
     )
 }
