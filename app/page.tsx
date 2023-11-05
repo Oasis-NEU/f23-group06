@@ -1,5 +1,6 @@
 import { FaUserCircle } from 'react-icons/fa';
 import Button from "@mui/material/Button";
+import UserBubble from "../app/components/UserBubble";
 
 /* 
 For working with the API:
@@ -21,7 +22,13 @@ export default function Page() {
 	];
 	return (
 		<div className="text-center flex flex-col w-full">
-			<h1 className="text-6xl p-5">Welcome to ClubHub</h1>
+			<div className="text-6xl p-5 flex justify-between items-center">
+				<div style={{ width: 100 }} />
+				<h1 className="text-center flex-grow">
+					Welcome to ClubHub
+				</h1>
+				<div className="absolute top-0 right-0"><UserBubble /></div>
+			</div>
 			<h1 className="text-4xl p-5">Club Selection Menu</h1>
 			<div className="flex flex-row flex-wrap justify-center">
 				{clubs.map((club) => (
