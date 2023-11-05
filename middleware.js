@@ -4,10 +4,17 @@ import { NextResponse } from 'next/server'
 export async function middleware(req) {
   const res = NextResponse.next()
   const supabase = createMiddlewareClient({ req, res })
+  await supabase.auth.getSession()
+  return res
+}
+
+/*export async function middleware(req) {
+  const res = NextResponse.next()
+  const supabase = createMiddlewareClient({ req, res })
   
   const {
     data: { user },
-  } = await supabase.auth.getUser()
+  } = await supabase.auth.getSession()
   console.log(user)
 
   // if user is signed in and the current path is / redirect the user to /account
@@ -16,14 +23,13 @@ export async function middleware(req) {
   }*/
 
   // if user is not signed in and the current path is not / redirect the user to /login
-  if (!user && req.nextUrl.pathname !== '/login') {
-    console.log("IRAN")
+/*if (!user && req.nextUrl.pathname !== '/login') {
     return NextResponse.redirect(new URL('/login', req.url))
   }
 
   return res
-}
+}*/
 
 export const config = {
-  matcher: "/penis", //["/((?!api|_next/static|_next/image|favicon.ico).*)"],
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico|_next/public).*)"],
 }

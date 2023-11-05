@@ -4,6 +4,7 @@ import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from '@nextui-o
 import { FaUserCircle } from 'react-icons/fa';
 import supabase from "../backend/supabase.js";
 
+
 export default function UserBubble() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -24,8 +25,10 @@ export default function UserBubble() {
       </DropdownTrigger>
       <DropdownMenu aria-label="Static Actions">
         <DropdownItem key="profile">My Profile</DropdownItem>
-        <DropdownItem key="logout" className="text-danger" color="danger" onClick={async () => await supabase.auth.signOut()}>
-          Logout
+        <DropdownItem key="logout" className="text-danger" color="danger">
+            <form action="/auth/logout" method="POST">
+              <button type="submit">Logout</button>
+            </form>
         </DropdownItem>
       </DropdownMenu>
     </Dropdown>
