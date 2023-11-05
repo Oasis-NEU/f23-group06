@@ -2,6 +2,7 @@
 import { BsPeople } from 'react-icons/bs';
 import { MdEventNote, MdHome } from 'react-icons/md';
 import { BsListTask } from 'react-icons/bs';
+import logo from '../../public/ClubHub-logos_transparent.svg'
 
 import * as React from 'react';
 import Box from '@mui/material/Box';
@@ -15,6 +16,8 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Link from '@mui/material/Link';
 import {useState} from 'react';
+
+import Image from 'next/image';
 
 const drawerWidth = '15vw';
 
@@ -49,36 +52,45 @@ export default function NavBar() {
     };
 
     return(
-        <Box sx={{display: 'flex'}}>
-        <Drawer
-            sx={{
+    <Box sx={{display: 'flex'}}>
+    <Drawer
+        sx={{
+        width: drawerWidth,
+        flexShrink: 0,
+        '& .MuiDrawer-paper': {
             width: drawerWidth,
-            flexShrink: 0,
-            '& .MuiDrawer-paper': {
-                width: drawerWidth,
-                boxSizing: 'border-box',
-            },
-            }}
-            variant="permanent"
-            anchor="left"
-        >
-            <Toolbar />
-                <Divider />
-            <List>
-                {navItems.map((item, index) => (
-                    <Typography variant = 'h4' key={index}>
-                        <Link href={item.link} style={{ textDecoration: 'none'}}>
-                            <ListItemButton selected={selectedIndex === index && index != 0} onClick={(event) => handleListItemClick(event, index)}>
-                                <ListItemIcon>
-                                    {item.icon}
-                                </ListItemIcon>
-                                <ListItemText className="text-black " primary={item.label} />
-                            </ListItemButton>
-                        </Link>
-                    </Typography>
-                ))}
-            </List>
-        </Drawer>
+            boxSizing: 'border-box',
+        },
+        }}
+        variant="permanent"
+        anchor="left"
+    >
+        <Box sx={{display: 'flex', justifyContent: 'center'}}>
+            <Link href="http://localhost:3000/">
+                <Image
+                        src={logo}
+                        alt='Logo'
+                        width={200}
+                        height={200}
+                />
+            </Link>
         </Box>
+        <Divider />
+        <List>
+            {navItems.map((item, index) => (
+                <Typography variant = 'h4' key={index}>
+                    <Link href={item.link} style={{ textDecoration: 'none'}}>
+                        <ListItemButton selected={selectedIndex === index && index != 0} onClick={(event) => handleListItemClick(event, index)}>
+                            <ListItemIcon>
+                                {item.icon}
+                            </ListItemIcon>
+                            <ListItemText className="text-black " primary={item.label} />
+                        </ListItemButton>
+                    </Link>
+                </Typography>
+            ))}
+        </List>
+    </Drawer>
+    </Box>
     );
 }
