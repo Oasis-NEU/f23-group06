@@ -23,7 +23,6 @@ export default function Page() {
 	return (
 		<div className="text-center flex flex-col w-full">
 			<div className="text-6xl p-5 flex justify-between items-center">
-				<div style={{ width: 100 }} />
 				<h1 className="text-center flex-grow">
 					Welcome to ClubHub
 				</h1>
