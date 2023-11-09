@@ -52,45 +52,47 @@ export default function NavBar() {
     };
 
     return(
-    <Box sx={{display: 'flex'}}>
-    <Drawer
-        sx={{
-        width: drawerWidth,
-        flexShrink: 0,
-        '& .MuiDrawer-paper': {
-            width: drawerWidth,
-            boxSizing: 'border-box',
-        },
-        }}
-        variant="permanent"
-        anchor="left"
-    >
-        <Box sx={{display: 'flex', justifyContent: 'center'}}>
-            <Link href="http://localhost:3000/">
-                <Image
-                        src={logo}
-                        alt='Logo'
-                        width={200}
-                        height={200}
-                />
-            </Link>
-        </Box>
-        <Divider />
-        <List>
-            {navItems.map((item, index) => (
-                <Typography variant = 'h4' key={index}>
-                    <Link href={item.link} style={{ textDecoration: 'none'}}>
-                        <ListItemButton selected={selectedIndex === index && index != 0} onClick={(event) => handleListItemClick(event, index)}>
-                            <ListItemIcon>
-                                {item.icon}
-                            </ListItemIcon>
-                            <ListItemText className="text-black " primary={item.label} />
-                        </ListItemButton>
+        <>
+            <Box sx={{display: 'flex'}}>
+            <Drawer
+                sx={{
+                width: drawerWidth,
+                flexShrink: 0,
+                '& .MuiDrawer-paper': {
+                    width: drawerWidth,
+                    boxSizing: 'border-box',
+                },
+                }}
+                variant="permanent"
+                anchor="left"
+            >
+                <Box sx={{display: 'flex', justifyContent: 'center'}}>
+                    <Link href="..">
+                        <Image
+                                src={logo}
+                                alt='Logo'
+                                width={200}
+                                height={200}
+                        />
                     </Link>
-                </Typography>
-            ))}
-        </List>
-    </Drawer>
-    </Box>
+                </Box>
+                <Divider />
+                <List>
+                    {navItems.map((item, index) => (
+                        <Typography variant = 'h4' key={index}>
+                            <Link href={item.link} style={{ textDecoration: 'none'}}>
+                                <ListItemButton selected={selectedIndex === index && index != 0} onClick={(event) => handleListItemClick(event, index)}>
+                                    <ListItemIcon>
+                                        {item.icon}
+                                    </ListItemIcon>
+                                    <ListItemText className="text-black " primary={item.label} />
+                                </ListItemButton>
+                            </Link>
+                        </Typography>
+                    ))}
+                </List>
+            </Drawer>
+            </Box>
+        </ >
     );
 }
