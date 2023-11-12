@@ -7,7 +7,6 @@ import logo from '../../public/ClubHub-logos_transparent.svg'
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
-import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
@@ -70,6 +69,7 @@ export default function NavBar() {
                     <Link href="..">
                         <Image
                                 src={logo}
+                                priority={false}
                                 alt='Logo'
                                 width={200}
                                 height={200}
