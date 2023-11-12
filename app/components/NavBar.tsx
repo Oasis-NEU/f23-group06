@@ -66,7 +66,7 @@ export default function NavBar() {
         anchor="left"
     >
         <Box sx={{display: 'flex', justifyContent: 'center'}}>
-            <Link href="https://club-hub-amber.vercel.app/">
+            <Link href="http://localhost:3000/">
                 <Image
                         src={logo}
                         alt='Logo'
