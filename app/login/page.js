@@ -1,7 +1,4 @@
 'use client'
-require('dotenv').config()
-import { Button } from "@nextui-org/react"
-import supabase from "../backend/supabase.js";
 import Image from 'next/image'
 import logo from '../../public/ClubHub-logos_transparent.svg'
 
