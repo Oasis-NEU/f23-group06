@@ -1,6 +1,8 @@
 import Button from "@mui/material/Button";
+import supabase from "../backend/supabase.js";
+
 export default function Page() {
-	// TODO: Fetch clubs and user id from local storage from API, and render them here
+
     const club = {title: 'Club Title', description: 'Lorem ipsum', id: 1, image: 'https://t4.ftcdn.net/jpg/00/53/45/31/360_F_53453175_hVgYVz0WmvOXPd9CNzaUcwcibiGao3CL.jpg'};
     const user = {
         firstName: 'Russell',
