@@ -1,7 +1,6 @@
-import { FaUserCircle } from 'react-icons/fa';
-import Button from "@mui/material/Button";
 import UserBubble from "../app/components/UserBubble";
 import supabase from './backend/supabase';
+import { ClubButton } from "./components/ClubButton";
 
 /* 
 For working with the API:
@@ -12,21 +11,7 @@ For working with the API:
 5. Render
 */
 export default async function Page() {
-
-	
-	let { data: clubs} = await supabase.from('clubs')
-											.select('*');
-		
-
-	// TODO: Fetch clubs from API, and render them here
-	/*const clubs = [
-		{title: 'Club 1', description: 'Club 1 description', id: 1, image: 'https://t4.ftcdn.net/jpg/00/53/45/31/360_F_53453175_hVgYVz0WmvOXPd9CNzaUcwcibiGao3CL.jpg'},
-		{title: 'Club 2', description: 'Club 2 description', id: 2, image: 'https://t4.ftcdn.net/jpg/00/53/45/31/360_F_53453175_hVgYVz0WmvOXPd9CNzaUcwcibiGao3CL.jpg'},
-		{title: 'Club 3', description: 'Club 3 description', id: 3, image: 'https://t4.ftcdn.net/jpg/00/53/45/31/360_F_53453175_hVgYVz0WmvOXPd9CNzaUcwcibiGao3CL.jpg'},
-		{title: 'Club 4', description: 'Club 4 description', id: 4, image: 'https://t4.ftcdn.net/jpg/00/53/45/31/360_F_53453175_hVgYVz0WmvOXPd9CNzaUcwcibiGao3CL.jpg'},
-		{title: 'Club 5', description: 'Club 5 description', id: 5, image: 'https://t4.ftcdn.net/jpg/00/53/45/31/360_F_53453175_hVgYVz0WmvOXPd9CNzaUcwcibiGao3CL.jpg'},
-		{title: 'Club 6', description: 'Club 6 description', id: 6, image: 'https://t4.ftcdn.net/jpg/00/53/45/31/360_F_53453175_hVgYVz0WmvOXPd9CNzaUcwcibiGao3CL.jpg'},
-	];*/
+	const { data: clubs} = await supabase.from('clubs').select('*');
 	return (
 		<div className="text-center flex flex-col w-full">
 			<div className="text-6xl p-5 flex justify-between items-center">
@@ -38,12 +23,10 @@ export default async function Page() {
 			<h1 className="text-4xl p-5">Club Selection Menu</h1>
 			<div className="flex flex-row flex-wrap justify-center">
 				{clubs?.map((club) => (
-					<div key={club.name} className="border border-black w-1/4 p-10 m-3">
+					<div key={club.id} className="border border-black w-1/4 p-10 m-3">
 						<h1 className="text-3xl">{club.name}</h1>
-						{/*<p className="text-2xl">{club.description}</p>*/}
 						<img src={supabase.storage.from('club_images').getPublicUrl(club.image)["data"]["publicUrl"]} />
-						{/* TODO: click saves club id into local storage */}
-						<Button variant="outlined" href="/club">Go to Club</Button>
+						<ClubButton clubId={club.id} />
 					</div>
 				))}
 			</div>

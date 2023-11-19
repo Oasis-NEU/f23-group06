@@ -1,9 +1,9 @@
 import Button from "@mui/material/Button";
 import supabase from "../backend/supabase.js";
 
-export default function Page() {
-
-    const club = {title: 'Club Title', description: 'Lorem ipsum', id: 1, image: 'https://t4.ftcdn.net/jpg/00/53/45/31/360_F_53453175_hVgYVz0WmvOXPd9CNzaUcwcibiGao3CL.jpg'};
+export default async function Page({ params }: { params: { club: string } }) {
+    const club = await supabase.from('clubs').select('*').eq('id', parseInt(params.club));
+    const clubData = club.data && club.data.length > 0 ? club.data[0] : {name: 'Error' , description: 'Error this club does not exist.'};
     const user = {
         firstName: 'Russell',
         lastName: 'leung',
@@ -15,9 +15,9 @@ export default function Page() {
     return (
         <div className="text-center flex flex-col w-full">
             <div className="flex flex-col">
-                <h1 className="text-6xl p-5">{club.title}</h1>
-                <img src={club.image} className="w-1/3 m-auto" />
-                <h1 className="text-4xl p-5">{club.description}</h1>
+                <h1 className="text-6xl p-5">{clubData.name}</h1>
+                <img src={supabase.storage.from('club_images').getPublicUrl(clubData.image)["data"]["publicUrl"]} className="w-1/3 m-auto" />
+                <h1 className="text-4xl p-5">{clubData.description}</h1>
                 {user.role == 0 ? <Button variant="outlined" href="/club/members" className="w-1/3 m-auto">Join Club</Button> : null}
             </div>
         </div>
