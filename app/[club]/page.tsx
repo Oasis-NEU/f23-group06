@@ -1,8 +1,8 @@
 import Button from "@mui/material/Button";
-import supabase from "../../backend/supabase.js";
+import supabase from "../backend/supabase.js";
 
-export default async function Page({ params }: { params: { clubId: string } }) {
-    const club = await supabase.from('clubs').select('*').eq('id', parseInt(params.clubId));
+export default async function Page({ params }: { params: { club: string } }) {
+    const club = await supabase.from('clubs').select('*').eq('id', parseInt(params.club));
     const clubData = club.data && club.data.length > 0 ? club.data[0] : {name: 'Error' , description: 'Error this club does not exist.'};
     const user = {
         firstName: 'Russell',

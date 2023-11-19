@@ -7,7 +7,7 @@ export function ClubButton({clubId}: any) {
     };
 
   return (
-    <Link href={`/club/${clubId}`}>
+    <Link href={`/${clubId}`}>
       <Button variant="bordered" color="primary" onClick={saveClubId}>
         Go to Club
       </Button>
