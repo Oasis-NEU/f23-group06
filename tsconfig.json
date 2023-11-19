@@ -32,7 +32,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "app/club/members/page.jsx",
+    "app/[club]/members/page.jsx",
     ".next/types/**/*.ts"
   ],
   "exclude": [
