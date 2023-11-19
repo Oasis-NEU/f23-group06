@@ -20,35 +20,35 @@ import Image from 'next/image';
 
 const drawerWidth = '15vw';
 
-const navItems = [
-    {
-        label: "Home",
-        icon: <MdHome/>,
-        link: "../club"
-    },
-    {
-        label: 'Members',
-        icon: <BsPeople />,
-        link: '../club/members'
-    },
-    {
-        label: 'Events',
-        icon: <MdEventNote />, 
-        link: '../club/events'
-    },
-    {
-        label: 'Tasks',
-        icon: <BsListTask />,
-        link: '../club/tasks'
-    }
-]
-
 export default function NavBar() {
     const [selectedIndex, setSelectedIndex] = useState(0);
-    
+    const clubId = window.localStorage.getItem("clubId");
     const handleListItemClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>, index: number) => {
         setSelectedIndex(index);
     };
+
+    const navItems = [
+        {
+            label: "Home",
+            icon: <MdHome/>,
+            link: `/club/${clubId}`
+        },
+        {
+            label: 'Members',
+            icon: <BsPeople />,
+            link: '../club/members'
+        },
+        {
+            label: 'Events',
+            icon: <MdEventNote />, 
+            link: '../club/events'
+        },
+        {
+            label: 'Tasks',
+            icon: <BsListTask />,
+            link: '../club/tasks'
+        }
+    ]
 
     return(
         <>
