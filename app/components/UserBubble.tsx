@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from '@nextui-org/react';
 import { FaUserCircle } from 'react-icons/fa';
 import supabase from "../backend/supabase.js";
+import Link from 'next/link';
 
 
 export default function UserBubble() {
