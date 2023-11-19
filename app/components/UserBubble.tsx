@@ -5,6 +5,7 @@ import { FaUserCircle } from 'react-icons/fa';
 import supabase from "../backend/supabase.js";
 import Link from 'next/link';
 
+
 export default function UserBubble() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -24,9 +25,11 @@ export default function UserBubble() {
         </div>
       </DropdownTrigger>
       <DropdownMenu aria-label="Static Actions">
-        <DropdownItem key="profile"><Link href="../profile">My Profile</Link></DropdownItem>
-        <DropdownItem key="logout" className="text-danger" color="danger" onClick={async () => await supabase.auth.signOut()}>
-          Logout
+        <DropdownItem key="profile">My Profile</DropdownItem>
+        <DropdownItem key="logout" className="text-danger" color="danger">
+            <form action="/auth/logout" method="POST">
+              <button type="submit">Logout</button>
+            </form>
         </DropdownItem>
       </DropdownMenu>
     </Dropdown>
