@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.userBubble {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.card {
+  width: 270px;
+  color: #000000;
+}
