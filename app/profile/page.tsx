@@ -32,7 +32,7 @@ export default function ProfilePage() {
                     <small className="text-default-500">{user.email}</small>
                 </CardBody>
             </Card>
-            <div className={styles.userBubble}> <UserBubble /></div>
+            <div className="absolute top-0 right-0 mr-3 mt-3"> <UserBubble /></div>
         </div>
       );
   }
