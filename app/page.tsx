@@ -33,7 +33,7 @@ export default async function Page() {
 				<h1 className="text-center flex-grow">
 					Welcome to ClubHub
 				</h1>
-				<div className="absolute top-0 right-0"><UserBubble /></div>
+				<div className="absolute top-0 right-0 mr-3 mt-3"><UserBubble /></div>
 			</div>
 			<h1 className="text-4xl p-5">Club Selection Menu</h1>
 			<div className="flex flex-row flex-wrap justify-center">
