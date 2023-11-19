@@ -1,7 +1,7 @@
 import NavBar from '../components/NavBar';
 import UserBubble from "../components/UserBubble";
 
-export default function Layout({ children, params }: { children: React.ReactNode }) {
+export default function Layout({ children, params }: { children: React.ReactNode, params: any }) {
 	return (
 		<div>
             <div className="m-3 flex justify-end"><UserBubble /></div>
