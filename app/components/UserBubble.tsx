@@ -28,7 +28,7 @@ export default function UserBubble() {
         <DropdownItem key="profile">My Profile</DropdownItem>
         <DropdownItem key="logout" className="text-danger" color="danger">
             <form action="/auth/logout" method="POST">
-              <button type="submit">Logout</button>
+              <button className="w-full text-left" type="submit">Logout</button>
             </form>
         </DropdownItem>
       </DropdownMenu>
