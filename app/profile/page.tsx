@@ -4,7 +4,7 @@ import { Input, User } from "@nextui-org/react";
 import React from 'react';
 import {Card, CardHeader, CardBody, Image} from '@nextui-org/react';
 import styles from './Profile.module.css';
-import UserBubble from "../components/UserBubble.tsx";
+import UserBubble from "../components/UserBubble";
 
 //for the user to log out.
 async function signOut() {
