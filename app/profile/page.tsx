@@ -16,8 +16,8 @@ export default function ProfilePage() {
     // Example data
     const user = {
       profilePicture: 'https://image.cnbcfm.com/api/v1/image/106878527-1620223837055-106748412-1602881184740-biden.jpg?v=1620224062',
-      name: 'John Doe',
-      email: 'john.doe@example.com',
+      name: 'Joe Biden',
+      email: 'joe.biden@example.com',
       birthday: '9/20/1942',
       hometown: 'Scranton, Pennsylvania',
       interests: '- Politics \n - Economics \n - History \n - Sports \n - Computer Science',
