@@ -29,6 +29,6 @@ export default async function Page({ params }) {
   ];
 
   return (
-    <Members rows={club_users} columns={columns} />
+    <Members rows={club_users} columns={columns} club_id={params.club} />
   )
 }
