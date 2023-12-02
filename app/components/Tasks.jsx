@@ -4,7 +4,7 @@ import {Table, TableHeader, TableColumn, TableBody,
 		TableRow, TableCell, getKeyValue, Chip} from "@nextui-org/react";
 import TaskModal from "./AddTaskModal";
 
-export default function Tasks({rows, columns}) {
+export default function Tasks({rows, columns, members, club_id}) {
 
     function renderChips(k, v) {
         if (k == "assignees") {
@@ -17,7 +17,7 @@ export default function Tasks({rows, columns}) {
     return (
         <div className="flex flex-col gap-3 w-full mx-8">
             <div className="justify-left w-min mt-1/2 h-min">
-                <TaskModal />
+                <TaskModal members={members} club_id={club_id}/>
             </div>
             <Table aria-label="Example table with dynamic content" selectionMode="multiple" classNames={
                 {
