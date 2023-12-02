@@ -5,8 +5,19 @@ import MemberModal from "./AddMemberModal"
 import React from 'react'
 export default function Members({rows, columns}) {
 
+    function renderChips(k, v) {
+        if (k == "labels") {
+            let chips = v.map(label => <Chip key={label}>{label}</Chip>)
+            return <div>{chips}</div>
+        }
+        return v
+    }
+
     return (
         <div className="flex flex-col gap-3 w-full mx-8">
+            <div className="justify-start w-min mt-1/2 h-min">
+                    <MemberModal/>
+                </div>
             <Table key="1" aria-label="Table of Members" selectionMode="multiple" classNames={
                 {
                     base: "w-full",
@@ -19,16 +30,13 @@ export default function Members({rows, columns}) {
                 <TableBody items={rows}>
                     {(item) => (
                         <TableRow key={item.id}>
-                            {(columnKey) => <TableCell>{getKeyValue(item, columnKey)}</TableCell>}
+                            {(columnKey) => <TableCell>{
+                                renderChips(columnKey, getKeyValue(item, columnKey))}</TableCell>
+                            }
                         </TableRow>
                     )}
                 </TableBody>
             </Table>
-            <div className="w-full h-screen">
-                <div className="mx-auto w-min mt-1/2 h-min">
-                    <MemberModal/>
-                </div>
-            </div>
         </div>
     )
 }
