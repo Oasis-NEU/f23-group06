@@ -25,10 +25,15 @@ export default function UserBubble() {
         </div>
       </DropdownTrigger>
       <DropdownMenu aria-label="Static Actions">
+        <DropdownItem key="home">
+          <a href="/">
+            <button className="w-full text-left" type="submit">Home</button>
+          </a>
+        </DropdownItem>
         <DropdownItem key="profile">
-          <form action="/profile" method="GET">
+          <a href="/profile">
             <button className="w-full text-left" type="submit">My Profile</button>
-          </form>
+          </a>
         </DropdownItem>
         <DropdownItem key="logout" className="text-danger" color="danger">
             <form action="/auth/logout" method="POST">
