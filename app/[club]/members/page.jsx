@@ -1,54 +1,34 @@
-'use client';
-import {Table, TableHeader, TableColumn, 
-    TableBody, TableRow, TableCell, Chip, getKeyValue} from "@nextui-org/react";
-import MemberModal from "../../components/AddMemberModal"
+'use server';
+import Members from "../../components/Members"
 import React from 'react'
+import supabase from "../../backend/supabase";
 
-export default function Page() {
-    const rows = [
-        {id: 1, name: "John Doe", email: "jd@gmail.com", labels: ["President", "Treasurer"]},
-        {id: 2, name: "Jane Doe", email: "snjd", labels: ["Vice President", "Secretary"]},
-    ];
-    const columns = [
-        {
-          key: "name",
-          label: "NAME",
-        },
-        {
-          key: "email",
-          label: "EMAIL",
-        },
-        {
-            key: "labels",
-            label: "LABELS",
-        },
-    ];
+export default async function Page({ params }) {
 
-    return (
+  const { data: club_users, error1 } = await supabase.from("club_users").select("id, user_id, labels, users (id,first_name,last_name,email)").eq("club_id", params.club)
 
-		<div className="flex flex-col gap-3 w-full mx-8">
-			<Table key="1" aria-label="Table of Members" selectionMode="multiple" classNames={
-				{
-					base: "w-full",
-					table: "w-full"
-				}
-			}>
-				<TableHeader columns={columns} key="2">
-					{(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
-				</TableHeader>
-				<TableBody items={rows}>
-					{(item) => (
-						<TableRow key={item.id}>
-							{(columnKey) => <TableCell>{getKeyValue(item, columnKey)}</TableCell>}
-						</TableRow>
-					)}
-				</TableBody>
-			</Table>
-			<div className="w-full h-screen">
-				<div className="mx-auto w-min mt-1/2 h-min">
-					<MemberModal/>
-				</div>
-			</div>
-		</div>
-    )
+  for (let i = 0; i < club_users.length; i++) {
+    let el = club_users[i].users;
+    club_users[i].name = el.first_name + " " + el.last_name
+    club_users[i].email = el.email
+  }
+
+  const columns = [
+    {
+      key: "name",
+      label: "NAME",
+    },
+    {
+      key: "email",
+      label: "EMAIL",
+    },
+    {
+      key: "labels",
+      label: "LABELS",
+    },
+  ];
+
+  return (
+    <Members rows={club_users} columns={columns} />
+  )
 }
