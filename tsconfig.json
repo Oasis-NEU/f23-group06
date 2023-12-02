@@ -34,7 +34,7 @@
     "**/*.tsx",
     "app/[club]/members/page.jsx",
     ".next/types/**/*.ts"
-, "app/[club]/tasks/page.jsx", "app/components/AddMemberModal.jsx"  ],
+, "app/[club]/tasks/page.jsx", "app/components/AddMemberModal.jsx", "app/components/AddTaskModal.jsx"  ],
   "exclude": [
     "node_modules"
   ]

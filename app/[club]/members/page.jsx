@@ -11,6 +11,11 @@ export default async function Page({ params }) {
     .on('postgres_changes', { event: '*', schema: 'public', table: 'club_users' }, async payload => {
       let thing = await supabase.from("club_users").select("id, user_id, labels, users (id,first_name,last_name,email)").eq("club_id", params.club)
       club_users = thing.data
+      for (let i = 0; i < club_users.length; i++) {
+        let el = club_users[i].users;
+        club_users[i].name = el.first_name + " " + el.last_name
+        club_users[i].email = el.email
+      }
     })
     .subscribe()
 
