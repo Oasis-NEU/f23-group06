@@ -1,11 +1,18 @@
-'use server';
 import Members from "../../components/Members"
 import React from 'react'
 import supabase from "../../backend/supabase";
 
 export default async function Page({ params }) {
 
-  const { data: club_users, error1 } = await supabase.from("club_users").select("id, user_id, labels, users (id,first_name,last_name,email)").eq("club_id", params.club)
+  let { data: club_users, error1 } = await supabase.from("club_users").select("id, user_id, labels, users (id,first_name,last_name,email)").eq("club_id", params.club)
+
+  supabase
+    .channel('room1')
+    .on('postgres_changes', { event: '*', schema: 'public', table: 'club_users' }, async payload => {
+      let thing = await supabase.from("club_users").select("id, user_id, labels, users (id,first_name,last_name,email)").eq("club_id", params.club)
+      club_users = thing.data
+    })
+    .subscribe()
 
   for (let i = 0; i < club_users.length; i++) {
     let el = club_users[i].users;
